@@ -1,0 +1,129 @@
+Version 2.0.0
+
+++ Implemented quenching at interface for transistor-like experiment to measure the exciton quenching 
+  radius of induced charges at the dielectric-semiconductor interface
+
++ new PrepocessorOptions.h. User can switch off the periodic boundary conditions along z-axis.
++ 2 new experiment_types: e110, e120 
++ quenchers are placed at z=0 on a square lattice
++ a couple of performance improvement are implemented in CloassExciton.hop3() 
+  
+
+Version 1.1.5
+
+* Fixed bug for very long PL decays
+
+Version 1.1.4
+
+- Implement 3-exponential decay in the pristine film
+
+Version 1.1.2
+
+- Experiment type 21: For thermal relaxation. Vary exciton temperature to get specific
+  quenching efficiency
+
+- Implement linear extrapolation when searching for TRel_M in experiment type 21. This enhancement 
+  improves simulation efficiency.
+
+Version 1.1.1
+
+- upgrage thermal relaxation with Gaussian distribution of initial hopsizes
+
+
+Version 1.1.0
+
+- automate selection of dT. Now user should not care aobut 
+  hopsize * sqrt(dT) < qRadius
+- introduce thermal relaxation using two parameters
+  TRel_hopsize_hot and TRel_time
+
+
+Version 1.0.1
+
+- implement possiblitiy to vary hopsize with constant tau and 
+  constant background density. Experiment_type = 50
+- write <dL^2> to output files in to othere epexriment types as well
+
+Version 1.0.1
+
+- implement possiblitiy to vary tau. Experiment_type = 40
+
+
+Version 1.0
+
+- implement action sphere to mimich Forster energy trasnfer to fullerenes
+- experiment type 20: now it is possible also to use quencher concentration here
+- separated classes from medium.cpp. New files are ClassBool3D.cpp, 
+  ClassMedium.cpp, ClassQuencher.cpp. medium.cpp can be deleted
+
+=============
+Version 0.9.2.2
+
+- Also caluclae <dL> and <dx>
+
+Version 0.9.2.1
+
+- FIX: Only in version 0.9.2 there was a bug in function hop2(). 
+  There was "x+=dz" instead of "z+=dz"
+
+Version 0.9.2
+
+- FIX:  Ld, which is shown after each generation was not calculated right.
+  now it is sqrt (<dL^2>). This value is directly related to exciton diffusion length Ld=sqrt(d*tau*D).
+
+==============
+Version 0.9.1.1
+
+- fixed bug of 4/3 -> 4.0/3.0
+
+Version 0.9.1
+
+- implement possibitiy to set a range of quencher concentration instead of 
+  the volume fraction
+- write also quencher concentration in cm-3 to the Radiative vs Volume fraction file
+- in experiments where the range is changed, fix the handling of array from 
+  15 rows to 50 rows. 
+
+==============
+Version 0.9
+
+- implement possibitity to vary the quencher size in order to reach the 
+  specific quenching efficiency using the specific hopsize
+
+==============
+Version 0.8
+
+- implement offset for volume fraction when running in vFrac variation mode
+
+
+
+==============
+Version 0.7
+
+- this version has been used to model ZZ50:PCBM, P3HT:PCBM
+- Numerous enhancements 
+* Bugfix: fixed the memory leak when modeling looking for hopsize
+
+
+
+==============
+Version 0.6
+
+- read the medium from the BMP files
+- reject initial exciton placements, which coincide with the quencher region.
+- This software was used to make initial modeling for Zn0-P3HT structures.
+
+
+
+==============
+Version 0.5
+
+- Quenchers to form crystal clusters
+- save a slice of the medium to BMP
+
+
+==============
+Version 0.4
+
+- The code have been split into separate files 
+- Round quenchers can be placed homogeneously into the model box
